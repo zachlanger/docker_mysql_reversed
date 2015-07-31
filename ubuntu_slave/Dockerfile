@@ -9,9 +9,9 @@ RUN apt-get install -y openjdk-7-jdk
 RUN apt-get install -y openssh-server
 RUN apt-get install -y supervisor
 RUN apt-get install -y git
-RUN apt-get install zlib1g-dev
-RUN apt-get install ruby-dev
-RUN apt-get install libsqlite3-dev
+RUN apt-get install -y zlib1g-dev
+RUN apt-get install -y ruby-dev
+RUN apt-get install -y libsqlite3-dev
 RUN apt-get install -y libmysqlclient-dev
 RUN apt-get install -y mysql-server
 
