@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<slave>
+  <name>slave2</name>
+  <description></description>
+  <remoteFS>/var/jenkins</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.9">
+    <host>172.17.0.114</host>
+    <port>22</port>
+    <credentialsId>d4e136b0-8378-4388-8abe-9d4304bd7bdf</credentialsId>
+    <maxNumRetries>0</maxNumRetries>
+    <retryWaitTime>0</retryWaitTime>
+  </launcher>
+  <label>mysql2</label>
+  <nodeProperties/>
+  <userId>anonymous</userId>
+</slave>

@@ -1,0 +1,198 @@
+  [1m[36m (22.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (27.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCars (20150723145407)
+  [1m[35m (17.2ms)[0m  CREATE TABLE `cars` (`id` int(11) auto_increment PRIMARY KEY, `make` varchar(255), `model` varchar(255), `year` int(11), `price` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150723145407')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'app_mysql_test'
+  AND fk.table_name = 'cars'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cars`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:00:10 -0600
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:00:10 -0600
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:00:42 -0600
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  Rendered cars/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 1528ms (Views: 1516.7ms | ActiveRecord: 1.6ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (19.9ms)
+  Rendered cars/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 33ms (Views: 26.2ms | ActiveRecord: 0.5ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Maserati", "model"=>"Grandturismo", "year"=>"2015", "price"=>"132000"}, "commit"=>"Create Car"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Maserati', 'Grandturismo', 2015, 132000, '2015-07-23 15:00:44', '2015-07-23 15:00:44')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars/1
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/cars/1" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 1 LIMIT 1[0m
+  Rendered cars/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  Rendered cars/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (2.9ms)
+  Rendered cars/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Ford", "model"=>"Mustang", "year"=>"1967", "price"=>"2300"}, "commit"=>"Create Car"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Ford', 'Mustang', 1967, 2300, '2015-07-23 15:00:44', '2015-07-23 15:00:44')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars/2
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/cars/2" for 127.0.0.1 at 2015-07-23 09:00:44 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCar Load (0.2ms)[0m  SELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 2 LIMIT 1
+  Rendered cars/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  Rendered cars/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 187ms (Views: 174.8ms | ActiveRecord: 2.6ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (13.9ms)
+  Rendered cars/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 28ms (Views: 19.0ms | ActiveRecord: 0.8ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Maserati", "model"=>"Grandturismo", "year"=>"2015", "price"=>"132000"}, "commit"=>"Create Car"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Maserati', 'Grandturismo', 2015, 132000, '2015-07-23 15:01:14', '2015-07-23 15:01:14')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars/3
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/cars/3" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 3 LIMIT 1[0m
+  Rendered cars/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 10ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  Rendered cars/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (1.8ms)
+  Rendered cars/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Ford", "model"=>"Mustang", "year"=>"1967", "price"=>"2300"}, "commit"=>"Create Car"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Ford', 'Mustang', 1967, 2300, '2015-07-23 15:01:14', '2015-07-23 15:01:14')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars/4
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+Started GET "/cars/4" for 127.0.0.1 at 2015-07-23 09:01:14 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCar Load (0.2ms)[0m  SELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 4 LIMIT 1
+  Rendered cars/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  Rendered cars/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 176ms (Views: 163.6ms | ActiveRecord: 1.4ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (14.2ms)
+  Rendered cars/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 29ms (Views: 19.9ms | ActiveRecord: 1.0ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Maserati", "model"=>"Grandturismo", "year"=>"2015", "price"=>"132000"}, "commit"=>"Create Car"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Maserati', 'Grandturismo', 2015, 132000, '2015-07-23 15:10:18', '2015-07-23 15:10:18')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/cars/5
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/cars/5" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 5 LIMIT 1[0m
+  Rendered cars/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.3ms)[0m  SELECT `cars`.* FROM `cars`
+  Rendered cars/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+Started GET "/cars/new" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (2.4ms)
+  Rendered cars/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+Started POST "/cars" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#create as HTML
+  Parameters: {"utf8"=>"✓", "car"=>{"make"=>"Ford", "model"=>"Mustang", "year"=>"1967", "price"=>"2300"}, "commit"=>"Create Car"}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `cars` (`make`, `model`, `year`, `price`, `created_at`, `updated_at`) VALUES ('Ford', 'Mustang', 1967, 2300, '2015-07-23 15:10:18', '2015-07-23 15:10:18')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cars/6
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+Started GET "/cars/6" for 127.0.0.1 at 2015-07-23 09:10:18 -0600
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mCar Load (0.2ms)[0m  SELECT  `cars`.* FROM `cars` WHERE `cars`.`id` = 6 LIMIT 1
+  Rendered cars/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'app_mysql_test'
+  AND fk.table_name = 'cars'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cars`

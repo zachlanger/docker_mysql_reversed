@@ -1,0 +1,26 @@
+Ruby on Rails on a slave on Jenkins on Docker
+  Kitematic recommended
+  Fork and clone this Directory
+  In jenkins_files, under car_creation & creating_cars, change lines 8 & 15 of
+  both config.xml files from zachlanger to your github username.
+
+
+Step 1:
+  bash build_ubuntu.sh
+  It's finished when 'success: mysql entered RUNNING state,' is printed
+Step 2:
+  Ctrl+c
+Step 3:
+  bash build_second_slave.sh
+  It's finished when 'success: mysql entered RUNNING state,' is printed
+Step 4:
+  Ctrl+c
+Step 5:
+  bash build_jenkins.sh
+
+Open Jenkins in web browser and let it build itself (may have to relaunch slaves)
+
+For any extra slaves:
+  docker run -p NEW_PORT:22 --name NEW_NAME --privileged -t zlanger/dockerubuntu
+  Specify labels and tests to run in the job configs
+DONE!!!

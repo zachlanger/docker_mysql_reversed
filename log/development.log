@@ -1,0 +1,68 @@
+  [1m[36m (25.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (31.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCars (20150723145407)
+  [1m[35m (12.5ms)[0m  CREATE TABLE `cars` (`id` int(11) auto_increment PRIMARY KEY, `make` varchar(255), `model` varchar(255), `year` int(11), `price` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150723145407')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (1.0ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'app_mysql_development'
+  AND fk.table_name = 'cars'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cars`
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'app_mysql_development'
+  AND fk.table_name = 'cars'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cars`
+
+
+Started GET "/" for ::1 at 2015-07-23 09:11:28 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by CarsController#index as HTML
+  [1m[35mCar Load (0.4ms)[0m  SELECT `cars`.* FROM `cars`
+  Rendered cars/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 1510ms (Views: 1498.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/scaffolds.self-416008331482bf122f94965db80c3a08f64b7c1cb10774ec9b65fbc76645fe78.css?body=1" for ::1 at 2015-07-23 09:11:30 -0600
+
+
+Started GET "/cars/new" for ::1 at 2015-07-23 09:11:35 -0600
+Processing by CarsController#new as HTML
+  Rendered cars/_form.html.erb (15.8ms)
+  Rendered cars/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 53ms (Views: 47.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cars" for ::1 at 2015-07-23 09:11:38 -0600
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT `cars`.* FROM `cars`[0m
+  Rendered cars/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (2.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'app_mysql_development'
+  AND fk.table_name = 'cars'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `cars`
