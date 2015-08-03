@@ -50,7 +50,8 @@ EXPOSE 8080
 ENTRYPOINT [ "/usr/local/bin/dockerjenkins.sh" ]
 
 # Setup jobs and slaves
-RUN mkdir -p /opt/jenkins/data/{jobs/{car_creation,creating_cars},nodes/{slave1,slave2}}
+WORKDIR /opt/jenkins/data
+RUN mkdir -p ./{jobs/{car_creation,creating_cars},nodes/{slave1,slave2}}
 COPY car_creation/* jobs/car_creation/
 COPY creating_cars/* jobs/creating_cars/
 COPY slave1/config.xml nodes/slave1/
