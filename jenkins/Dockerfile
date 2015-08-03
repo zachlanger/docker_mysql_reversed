@@ -17,7 +17,22 @@ RUN mkdir -p $JENKINS_HOME/plugins
 RUN curl -sf -o /opt/jenkins/jenkins.war -L $JENKINS_MIRROR/war-stable/latest/jenkins.war
 
 # Install plugins
-RUN for plugin in chucknorris greenballs scm-api github github-api multiple-scms git-client git authentication-tokens token-macro ruby credentials ssh-credentials ssh-slaves durable-task slave-setup ws-cleanup ;\
+RUN for plugin in chucknorris \
+                  greenballs \
+                  scm-api \
+                  github \
+                  github-api \
+                  multiple-scms \
+                  git-client \
+                  git \
+                  authentication-tokens \
+                  token-macro \
+                  credentials \
+                  ssh-credentials \
+                  ssh-slaves \
+                  durable-task \
+                  slave-setup \
+                  ws-cleanup ;\
     do curl -sf -o $JENKINS_HOME/plugins/${plugin}.hpi \
        -L $JENKINS_MIRROR/plugins/${plugin}/latest/${plugin}.hpi ; done
 
@@ -35,15 +50,12 @@ EXPOSE 8080
 ENTRYPOINT [ "/usr/local/bin/dockerjenkins.sh" ]
 
 # Setup jobs and slaves
-RUN mkdir -p /opt/jenkins/data/jobs/car_creation
-RUN mkdir -p /opt/jenkins/data/jobs/creating_cars
-RUN mkdir -p /opt/jenkins/data/nodes/slave1
-RUN mkdir -p /opt/jenkins/data/nodes/slave2
-COPY car_creation/* /opt/jenkins/data/jobs/car_creation/
-COPY creating_cars/* /opt/jenkins/data/jobs/creating_cars/
-COPY slave1/config.xml /opt/jenkins/data/nodes/slave1/
-COPY slave2/config.xml /opt/jenkins/data/nodes/slave2/
-COPY credentials.xml /opt/jenkins/data/
+RUN mkdir -p /opt/jenkins/data/{jobs/{car_creation,creating_cars},nodes/{slave1,slave2}}
+COPY car_creation/* jobs/car_creation/
+COPY creating_cars/* jobs/creating_cars/
+COPY slave1/config.xml nodes/slave1/
+COPY slave2/config.xml nodes/slave2/
+COPY credentials.xml ./
 
 # REVERSED SECTION
 RUN ssh-keygen -q -b 4096 -t rsa -f /root/.ssh/id_rsa -P ""

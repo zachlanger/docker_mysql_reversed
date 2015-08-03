@@ -29,7 +29,7 @@ COPY Gemfile.lock /usr/src/app/
 
 # Install gems
 RUN bundle install
-RUN gem install listen
+RUN gem install listen -v 3.0.3
 RUN gem install guard -v 2.12.9
 RUN gem install guard-rspec -v 4.6.3
 

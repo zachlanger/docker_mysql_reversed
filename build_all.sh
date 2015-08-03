@@ -15,7 +15,7 @@ sleep 5
 kill $TASK_PID
 
 # Build Jenkins
-cd ../jenkins_files
+cd ../jenkins
 
 IPADDRESS1=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave)
 IPADDRESS2=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave2)
