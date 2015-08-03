@@ -1,6 +1,21 @@
 #!/bin/bash
 
-cd jenkins_files
+# Build Slave 1
+cd ubuntu_slave/
+docker build -t zlanger/dockerubuntu .
+docker run --name ubuntu_slave -t zlanger/dockerubuntu &
+TASK_PID=$!
+sleep 5
+kill $TASK_PID
+
+# Build Slave 2
+docker run --name ubuntu_slave2 -t zlanger/dockerubuntu &
+TASK_PID=$!
+sleep 5
+kill $TASK_PID
+
+# Build Jenkins
+cd ../jenkins_files
 
 IPADDRESS1=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave)
 IPADDRESS2=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave2)

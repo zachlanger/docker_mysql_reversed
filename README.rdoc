@@ -6,17 +6,9 @@ Ruby on Rails on a slave on Jenkins on Docker
 
 
 Step 1:
-  bash build_ubuntu.sh
-  It's finished when 'success: mysql entered RUNNING state,' is printed
+  bash build_all.sh
 Step 2:
-  Ctrl+c
-Step 3:
-  bash build_second_slave.sh
-  It's finished when 'success: mysql entered RUNNING state,' is printed
-Step 4:
-  Ctrl+c
-Step 5:
-  bash build_jenkins.sh
+  Find a hobby to spend all your new found free time on
 
 Open Jenkins in web browser and let it build itself (may have to relaunch slaves)
 DONE!!!
