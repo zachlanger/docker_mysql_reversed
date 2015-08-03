@@ -1,14 +1,9 @@
 Ruby on Rails on a slave on Jenkins on Docker
-  Kitematic recommended
-  Fork and clone this Directory
-  In jenkins_files, under car_creation & creating_cars, change lines 8 & 15 of
-  both config.xml files from zachlanger to your github username.
-
+  Make sure your terminal is compatable with Docker
+  Clone this directory
 
 Step 1:
   bash build_all.sh
-Step 2:
-  Find a hobby to spend all your new found free time on
 
 Open Jenkins in web browser and let it build itself (may have to relaunch slaves)
 DONE!!!
