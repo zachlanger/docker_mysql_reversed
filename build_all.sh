@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Remove previous containers
+docker kill ubuntu_slave
+docker kill ubuntu_slave2
+docker kill jenkins
+docker rm ubuntu_slave
+docker rm ubuntu_slave2
+docker rm jenkins
+
 # Build Slave 1
 cd ubuntu_slave/
 docker build -t zlanger/dockerubuntu .
