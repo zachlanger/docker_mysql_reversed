@@ -1,5 +1,4 @@
 #!/bin/bash
-# Run in docker terminal
 
 cd jenkins_files
 

@@ -5,14 +5,14 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.12.0">
-      <projectUrl>https://github.com/zachlanger/mysql_reversed/</projectUrl>
+      <projectUrl>https://github.com/zachlanger/mysql.git</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/zachlanger/mysql_reversed.git</url>
+        <url>https://github.com/zachlanger/mysql.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -39,7 +39,7 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>/tmp/jenkins-buildenv/${JOB_NAME}/workspace</customWorkspace>
+  <customWorkspace>/usr/src/app</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>rake db:create db:test:prepare

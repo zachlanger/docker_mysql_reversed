@@ -19,8 +19,4 @@ Step 5:
   bash build_jenkins.sh
 
 Open Jenkins in web browser and let it build itself (may have to relaunch slaves)
-
-For any extra slaves:
-  docker run -p NEW_PORT:22 --name NEW_NAME --privileged -t zlanger/dockerubuntu
-  Specify labels and tests to run in the job configs
 DONE!!!

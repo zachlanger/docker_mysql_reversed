@@ -45,9 +45,10 @@ COPY slave1/config.xml /opt/jenkins/data/nodes/slave1/
 COPY slave2/config.xml /opt/jenkins/data/nodes/slave2/
 COPY credentials.xml /opt/jenkins/data/
 
+# REVERSED SECTION
 RUN ssh-keygen -q -b 4096 -t rsa -f /root/.ssh/id_rsa -P ""
-COPY authorized_keys /root/.ssh/
-COPY id_rsa /root/.ssh/
-WORKDIR /root/.ssh/
-RUN cat authorized_keys > id_rsa.pub
-RUN rm authorized_keys
+WORKDIR /root/.ssh
+RUN rm id_rsa id_rsa.pub
+COPY authorized_keys ./
+COPY id_rsa ./
+RUN mv authorized_keys id_rsa.pub
