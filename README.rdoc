@@ -5,7 +5,7 @@ Ruby on Rails on a slave on Jenkins on Docker
 Step 1:
   bash build_all.sh
 
-If you'd like to have it watch one of your apps, you'll have to configure the jenkins
+If you want to have Jenkins watch one of your apps, you'll have to configure the jenkins
 jobs to the correct git repo and spec suites. Make sure your Gemfile, Gemfile.lock
 .rspec and database.yml are configured like mine:
 https://github.com/zachlanger/mysql.git
