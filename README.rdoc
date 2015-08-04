@@ -1,5 +1,5 @@
 Ruby on Rails on a slave on Jenkins on Docker
-  Make sure your terminal is compatable with Docker
+  Make sure your terminal is Docker compatable
   Clone this directory
 
 Step 1:
