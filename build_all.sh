@@ -39,3 +39,7 @@ docker run -p 8080:8080 --name jenkins --privileged -d zlanger/dockerjenkins
 
 rm authorized_keys
 rm id_rsa
+
+sleep 5
+open "http://192.168.99.100:8080"
+open "http://localhost:8080"
