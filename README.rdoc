@@ -6,8 +6,8 @@ Step 1:
   bash build_all.sh
 
 If you want to have Jenkins watch one of your apps, you'll have to configure the jenkins
-jobs to the correct git repo and spec suites. Make sure your Gemfile, Gemfile.lock
-.rspec and database.yml are configured like mine:
+jobs to the correct git repo and spec suites. Make sure your Gemfile, Gemfile.lock,
+.rspec and database.yml are configured like the ones found here:
 https://github.com/zachlanger/mysql.git
 
 Open Jenkins in web browser and let it build itself (may have to relaunch slaves)

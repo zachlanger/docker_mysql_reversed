@@ -25,6 +25,7 @@ kill $TASK_PID
 # Build Jenkins
 cd ../jenkins
 
+# Connect Jenkins to IP addresses of the containers
 IPADDRESS1=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave)
 IPADDRESS2=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' ubuntu_slave2)
 
