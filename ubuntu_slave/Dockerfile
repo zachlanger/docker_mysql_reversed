@@ -9,6 +9,7 @@ RUN apt-get install -y openjdk-7-jdk
 RUN apt-get install -y openssh-server
 RUN apt-get install -y supervisor
 RUN apt-get install -y git
+# RUN apt-get install -y vim
 RUN apt-get install zlib1g-dev
 RUN apt-get install ruby-dev
 RUN apt-get install -y libsqlite3-dev
@@ -35,8 +36,10 @@ RUN gem install guard-rspec -v 4.6.3
 
 # REVERSED SECTION
 # Create ssh link
-COPY generate_ssh.sh /usr/src/app/
-RUN bash generate_ssh.sh
+RUN ssh-keygen -q -b 4096 -t rsa -f /root/.ssh/id_rsa -P ""
+RUN chmod 700 /root/.ssh
+RUN mv /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+RUN chmod 600 /root/.ssh/authorized_keys
 
 # Start mysql and ssh
 EXPOSE 22 80
