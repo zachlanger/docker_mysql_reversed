@@ -10,5 +10,5 @@ jobs to the correct git repo and spec suites. Make sure your Gemfile, Gemfile.lo
 .rspec and database.yml are configured like the ones found here:
 https://github.com/zachlanger/mysql.git
 
-Open Jenkins in web browser and let it build itself (may have to relaunch slaves)
+It will automaticly open the browser and run the tests.
 DONE!!!
